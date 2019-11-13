@@ -13,18 +13,6 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('App\comment');
-
-        foreach (range(1, 10) as $index) {
-
-            DB::table('comments')->insert([
-
-                'comment' => $faker->paragraph,
-                'likes' => $faker->randomDigit,
-                'name' => $faker->firstname,
-
-
-            ]);
-        }
+        factory(App\comment::class, 50)->create();
     }
 }

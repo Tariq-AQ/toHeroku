@@ -15,9 +15,9 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table -> string ('name', 64) -> nullable (false);
-            $table -> text ('comment') -> nullable (false);
-            $table -> integer ('likes') -> default(0);
+            $table->string('name', 64)->nullable(false);
+            $table->text('comment')->nullable(false);
+            $table->integer('likes')->default(0);
             $table->timestamps();
         });
     }
