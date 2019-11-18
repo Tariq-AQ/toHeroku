@@ -21,9 +21,9 @@
     class="table is-striped is-hoverable"
    >
      <thead>
-       <th>User</th>
-       <th>Comment</th>
-       <th>Date</th>
+       <th>Job Title</th>
+       <th>Description</th>
+       <th>Date Posted</th>
      </thead>
      <tbody>
        @foreach ($comments as $c)
@@ -32,10 +32,16 @@
            <td>{{ $c -> comment }}</td>
            <td>{{ $c -> created_at }}</td>
          </tr>
+         <td>
+            <a class="button"
+                href="/comment/{{ $c -> id }}/">
+                <img src="{{ asset ('images/eye.svg') }}"/></ion-icon>
+          </a>
        @endforeach
      </tbody>
    </table>
+   <div class="paginationBar">
    {{ $comments -> links () }}
-
+</div>
 </body>
 </html>

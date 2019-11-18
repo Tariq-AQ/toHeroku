@@ -11,3 +11,5 @@ Route::get('/', 'CommentController@index');
 Route::get('/aboutPage', function () {
     return view('about');
 })->name('about');
+
+Route::get('/comment/{comment}/', 'CommentController@show');

@@ -1,0 +1,12 @@
+.paginationBar {
+    width: 40%;
+    display: flexbox;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    padding: 20px;
+
+    white-space: nowrap;
+}
