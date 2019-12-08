@@ -70,7 +70,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->update(['comment' => $request->comment]);
+        return redirect()->action('CommentController@index');
     }
 
     /**
@@ -81,6 +82,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->action('CommentController@index');
     }
 }
