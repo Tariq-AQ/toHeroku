@@ -58,7 +58,8 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        $comment = comment::find($comment->id);
+        return view('comments.edit');
     }
 
     /**

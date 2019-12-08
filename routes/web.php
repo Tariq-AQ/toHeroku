@@ -14,7 +14,9 @@ Route::get('/aboutPage', function () {
     return view('about');
 })->name('about');
 
+
 Route::get('/comment/{comment}/', 'CommentController@show');
+Route::get('/comment/{comment}/like/', 'LikesController@upVote');
 Route::get('/comment/{comment}/delete', 'CommentController@destroy');
 Route::get('/comment/{comment}/edit', 'CommentController@edit');
-Route::get('comment/{comment}/edit', 'CommentController@update');
+Route::post('comment/{comment}/edit', 'CommentController@update');

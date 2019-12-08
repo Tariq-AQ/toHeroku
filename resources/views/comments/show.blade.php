@@ -31,4 +31,7 @@ value="{{ $comment -> comment }}" autofocus>
 <button type="submit">Save Changes</button>
 </fieldset>
 </form>
+<hr>
+
+
 @endsection

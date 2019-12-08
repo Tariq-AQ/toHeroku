@@ -38,6 +38,14 @@
                 <!-- <img src="{{ asset ('images/eye.svg') }}"/> --> <ion-icon name="eye"></ion-icon>
           </a>
          </td>
+
+         <td>
+            <a class="button"
+                href="/comment/{{ $c -> id }}/like/">
+                <ion-icon name="thumbs-up"></ion-icon>
+            </a>
+          </td>
+
          <td>
             <a class="button"
             href="/comment/{{ $c -> id }}/edit/">
