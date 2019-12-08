@@ -8,15 +8,14 @@
 
 use App\Http\Controllers\CommentController;
 
-Route::get('/', 'CommentController@index');
 
-Route::get('/aboutPage', function () {
-    return view('about');
-})->name('about');
+Route::get('/', function () {
+    return view('pages.index');
+})->name('index');
+
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
 
 
-Route::get('/comment/{comment}/', 'CommentController@show');
-Route::get('/comment/{comment}/like/', 'LikesController@upVote');
-Route::get('/comment/{comment}/delete', 'CommentController@destroy');
-Route::get('/comment/{comment}/edit', 'CommentController@edit');
-Route::post('comment/{comment}/edit', 'CommentController@update');
+##Let laravel automatically map routes to functions.
+Route::resource('jobs', 'JobsController');

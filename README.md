@@ -1,13 +1,8 @@
-week7..
-Added favicon /SVG.
-Added custom css file.
-Created a factory for seeder.
-Fresh-Migarted the database.
-Created 'index' view.
-A controller for comments.
-Added Bulma to index view.
-Added pagination.
+week10..
+Major tweaks
+All crud functions
+Turned the website from practice into final prject
+Added Laravel collectives
+Switched to Bootstrap
 
 ---
-
-week8..

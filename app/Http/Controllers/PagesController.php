@@ -6,8 +6,22 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function welcome()
+    public function index()
     {
-        return view('welcome');
+        return view('pages.index');
+    }
+
+    public function about()
+    {
+        return view('pages.about');
+    }
+
+    public function services()
+    {
+        $data = array(
+            'title' => 'Services',
+            'services' => ['Bussiness sales', 'Job Listing']
+        );
+        return view('pages.services')->with($data);
     }
 }
