@@ -28,11 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+
+    //Function to create one to many relationship. Each user can have many jobs
+    public function jobs()
+    {
+        return $this->hasMany('App\job');
+    }
+
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

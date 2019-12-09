@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
+use App\User;
 use DB;
 
 class JobsController extends Controller
@@ -41,10 +42,11 @@ class JobsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        //using tinker t write to database
+        //using tinker to write to database
         $job = new Job;
         $job->title = $request->input('title');
         $job->body = $request->input('body');
+        $job->user_id = auth()->user()->id;
         $job->save();
 
         return redirect('/jobs')->with('success', 'Job was successfully added!');
