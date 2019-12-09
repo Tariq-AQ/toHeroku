@@ -14,10 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h1>Your Jobs</h1>
                 </div>
+                <a href="/jobs/create" class="btn btn-primary">Add a new job</a>
             </div>
+
         </div>
+
     </div>
+
 </div>
 @endsection

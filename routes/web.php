@@ -19,3 +19,7 @@ Route::get('/services', 'PagesController@services');
 
 ##Let laravel automatically map routes to functions.
 Route::resource('jobs', 'JobsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
