@@ -28,11 +28,23 @@
                             <th>{{$eachJob->title}}</th>
 
                                     <td><p>Added on {{$eachJob->created_at}}</p></td>
-                                    <td>{!!Form::open(['action'=>['JobsController@destroy', $eachJob->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
+
+                                    <td>{!!Form::open(['action'=>['JobsController@destroy', $eachJob->id], 'method'=>'POST', 'class'=>'btn pr-0'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class'=> 'btn btn-danger'])}}
                                         {!!Form::close()!!}</td>
-                                        <td><a href="/jobs/{{$eachJob->id}}/edit" class="btn btn-default">Edit</a></td>
+                                        <td><a href="/jobs/{{$eachJob->id}}/edit" class="btn btn-secondary glyphicon glyphicon-pencil"></a></td>
+                                        <td><a href="/jobs/{{$eachJob->id}}/" class="btn btn-secondary glyphicon glyphicon-eye-open"></a></td>
+                                        <td>
+                                                <a class="button"
+                                                    href="/jobs/{{ $eachJob->id }}/like/">
+                                                    <button class="btn btn-secondary glyphicon glyphicon-thumbs-up"></button>
+                                                </a>
+                                                <a class="button"
+                                                     href="/jobs/{{ $eachJob->id }}/dislike/">
+                                                    <button class="btn btn-secondary glyphicon glyphicon-thumbs-down"></button>
+                                                 </a>
+                                              </td>
                                 </tr>
                             @endforeach
                         </table>

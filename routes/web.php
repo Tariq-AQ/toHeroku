@@ -2,9 +2,6 @@
 
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome'); // "Method chaining" makes sure the desired page will be reached even when the "get" parameters change.
 
 use App\Http\Controllers\CommentController;
 
@@ -23,3 +20,5 @@ Route::resource('jobs', 'JobsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/job/{job}/like', 'LikesController@upVote');
+Route::get('/job/{job}/dislike', 'LikesController@downVote');

@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Job;
 use App\User;
-use DB;
+
 
 class JobsController extends Controller
 {
@@ -90,7 +90,7 @@ class JobsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        //using tinker t write to database
+        //using tinker to write to database
         $job = Job::find($id);
         $job->title = $request->input('title');
         $job->body = $request->input('body');
@@ -99,15 +99,10 @@ class JobsController extends Controller
         return redirect('/jobs')->with('success', 'Job was successfully updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        $job = job::find($id);
+        $job = Job::find($id);
         $job->delete();
         return redirect('/jobs')->with('success', 'Job removed successfully!');
     }
