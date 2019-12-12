@@ -1,0 +1,59 @@
+[33mcommit 32a734ea5d01ae356e778e83c3aa074eff622112[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31mawp-1-forya90/master[m[33m)[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Tue Dec 10 03:53:11 2019 +0000
+
+    added like and dislike buttons
+
+[33mcommit 0b5268db12b107e87ebff31f58125dc12f993fae[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Mon Dec 9 08:23:13 2019 +0000
+
+    added user_id to the model to associate posts with users. created dashboard for loggedin user
+
+[33mcommit bfb30d046a6dd4fb3dfe88074d4fa11d1ddf7b00[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Mon Dec 9 03:42:56 2019 +0000
+
+    aded authentication
+
+[33mcommit f403169712f792d55ab3c09836aee9db542360a3[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Sun Dec 8 18:39:43 2019 +0000
+
+    Major tweaks. All CRUD functions
+
+[33mcommit 10b6f15edb62630ea4c99fb3fa3c0f3008f9619c[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Sun Dec 8 07:50:57 2019 +0000
+
+    added like btn. 404 error
+
+[33mcommit 696fae523c0c63836f3db99ec47bf97647eac181[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Sun Dec 8 04:14:36 2019 +0000
+
+    XAMPP fix backup
+
+[33mcommit eebcf32122c45f37f9322603cefd3185d04a9593[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Mon Nov 18 10:58:04 2019 +0000
+
+    added show
+
+[33mcommit 0df398bf7190f24f0d9755df53a4e087009f6f84[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Wed Nov 13 05:06:24 2019 +0000
+
+    Week 7 - CSS, favicon, pagination, index, controller
+
+[33mcommit 1ef6e551b5825a70197354d50429b538cc8af73d[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Sat Nov 2 23:05:42 2019 +0000
+
+    Added mysql database and seeded the databse with faker. Created controller for comment
+
+[33mcommit 19437664d2e4ac9eea6f93b4758117d7900926bb[m
+Author: forya90 <tariq_esa90@yahoo.com>
+Date:   Sun Oct 20 14:01:25 2019 +0100
+
+    installed laravel & node

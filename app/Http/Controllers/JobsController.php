@@ -106,4 +106,9 @@ class JobsController extends Controller
         $job->delete();
         return redirect('/jobs')->with('success', 'Job removed successfully!');
     }
+
+    public function like($id)
+    {
+        return $id;
+    }
 }

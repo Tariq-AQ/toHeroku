@@ -20,5 +20,9 @@
 
     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
+<br>
+{{-- Back takes user back to view template instead of jobs --}}
+<a href="/jobs/{{$job->id}}"> <button class="btn btn-secondary  	glyphicon glyphicon-circle-arrow-left "> Back</button>
+</a>
 
 @endsection

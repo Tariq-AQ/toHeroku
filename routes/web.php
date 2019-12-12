@@ -20,5 +20,5 @@ Route::resource('jobs', 'JobsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/job/{job}/like', 'LikesController@upVote');
-Route::get('/job/{job}/dislike', 'LikesController@downVote');
+Route::get('/jobs/{id}/like', 'LikesController@upVote');
+Route::get('/jobs/{id}/dislike', 'LikesController@downVote');
