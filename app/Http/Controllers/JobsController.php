@@ -47,6 +47,7 @@ class JobsController extends Controller
         $job->title = $request->input('title');
         $job->body = $request->input('body');
         $job->user_id = auth()->user()->id;
+        $job->likes = 0;
         $job->save();
 
         return redirect('/jobs')->with('success', 'Job was successfully added!');

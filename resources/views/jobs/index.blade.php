@@ -3,6 +3,12 @@
 @section('content')
     <h1>Jobs</h1>
     @if(count($job) >0 )
+
+
+
+
+
+
         @foreach ($job as $eachJob)
              <div class="card p-3 mt-3 mb-3">
              <h3><a href="/jobs/{{$eachJob->id}}">{{$eachJob->title}}</a></h3>
@@ -21,13 +27,18 @@
                             href="/jobs/{{ $eachJob->id }}/like/">
                             <button class="btn btn-secondary glyphicon glyphicon-thumbs-up"></button>
                         </a>
+
+
                         <a class="button"
                             href="/jobs/{{ $eachJob->id }}/dislike/">
                             <button class="btn btn-secondary glyphicon glyphicon-thumbs-down"></button>
 
-                        </a>
-                        <p class="">Likes </p>
+                        </a><span>{{$eachJob->likes}}</span>
+
                       </td>
+                      {{-- <td><p class="">Likes </p>
+                        {{$eachJob->likes}}
+                    </td> --}}
 
                </div>
 

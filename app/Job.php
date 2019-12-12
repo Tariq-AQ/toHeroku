@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     protected $fillable = [
-        'title', 'body', 'user_id',
+        'title', 'body', 'user_id', 'likes',
     ];
 
 
@@ -25,14 +25,18 @@ class Job extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function upVoteAndSave()
+    public function upvoteAndSave()
     {
         $this->likes += 1;
+        $this->timestamps = false;
         $this->update();
+        $this->timestamps = true;
     }
-    public function downVoteAndSave()
+    public function downvoteAndSave()
     {
         $this->likes -= 1;
+        $this->timestamps = false;
         $this->update();
+        $this->timestamps = true;
     }
 }
