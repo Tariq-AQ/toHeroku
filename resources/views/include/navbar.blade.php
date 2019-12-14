@@ -1,9 +1,9 @@
 <!--Some of the navbar elements were grabbed from getbootstrap.com -->
-      </nav>
+
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'JobShare') }}
                 </a>
 
 
@@ -12,7 +12,7 @@
 
                     <ul class="navbar-nav mr-auto">
                             <li class="nav-item ">
-                              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="/">Lounge <span class="sr-only">(current)</span></a>
                             </li>
 
                             <li class="nav-item">
@@ -29,12 +29,17 @@
 
 
 
-
+                            {{-- Search feature --}}
                           </ul>
-                          <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                          <form action="{{route('search')}}" method="GET" class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="query" id="query" aria-label="Search" value="{{request()->input('query')}}">
+                                <span><button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button></span>
                               </form>
+                              {{-- End of search --}}
+
+
+
+
 
                               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>

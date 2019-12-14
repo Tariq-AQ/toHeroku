@@ -27,6 +27,7 @@
                 @endif
             @else
                  <p class="jumbotron text-center">Welcome {{ Auth::user()->name }}!</p>
+                 @include('include.jobSlideShow')
 
                       </div>
             @endguest

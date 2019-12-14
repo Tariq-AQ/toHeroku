@@ -1,3 +1,5 @@
+
+{{-- This is the dashboard blade --}}
 @extends('layouts.app')
 
 @section('content')

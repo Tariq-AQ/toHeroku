@@ -2,7 +2,15 @@
 
 @section('content')
 <h1>Edit Job</h1>
-<!--Using Laravel collectives for the forms -->
+{{-- Check if user is logged in before editing --}}
+
+@guest
+        @if (Route::has('register'))
+        <p class=" text-center "> <a href="/login">Login</a>  or <a href="/register"> Register</a> to add or remove jobs!</p>
+
+        @endif
+    @else
+         <!--Using Laravel collectives for the forms -->
 {!! Form::open(['action'=>['JobsController@update', $job->id], 'method'=>'POST']) !!}
 <div class="form-group">
     {{Form::label('title', 'Title')}}
@@ -14,7 +22,7 @@
         {{Form::textarea('body',$job->body, ['class'=>'form-control', 'placeholder'=>'Body Text'])}}
     </div>
 
-    <!-- Using POST as the method for 'update' and the following code, we can tell laravel to spoof our put request-->
+    <!-- Using POST as the method for 'update' and the following code, we can tell laravel to spoof our put request. Ref - https://www.youtube.com/watch?v=EU7PRmCpx-0&list=PLillGF-RfqbYhQsN5WMXy6VsDMKGadrJ- -->
     {{form::hidden('_method', 'PUT')}}
 
 
@@ -24,5 +32,12 @@
 {{-- Back takes user back to view template instead of jobs --}}
 <a href="/jobs/{{$job->id}}"> <button class="btn btn-secondary  	glyphicon glyphicon-circle-arrow-left "> Back</button>
 </a>
+
+
+              </div>
+    @endguest
+
+
+
 
 @endsection

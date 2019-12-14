@@ -20,11 +20,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    // Show list of jobs that belong to the user
     public function index()
     {
         $user_id = auth()->user()->id;

@@ -6,21 +6,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
-use App\User;
-
 
 class JobsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        // $jobb = Job::all();
+        if (request()->has('likes')) {
+            $jobs = Job::where('likes', request('likes'))->paginate(5);
+        } else {
+
+            $jobs = Job::orderBy('created_at', 'desc')->paginate(5);
+            return view('jobs.index')->with('job', $jobs);
+        }
+    }
+
+
+    public function jobSlideShow()
+    {
+
         $jobs = Job::orderBy('created_at', 'desc')->paginate(5);
-        return view('jobs.index')->with('job', $jobs);
+        return view('include.jobSlideShow')->with('job', $jobs);
     }
 
 
@@ -29,12 +34,9 @@ class JobsController extends Controller
         return view('jobs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+
     public function store(Request $request)
     {
         //Only submit when data is input
@@ -53,37 +55,25 @@ class JobsController extends Controller
         return redirect('/jobs')->with('success', 'Job was successfully added!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
     public function show($id)
     {
         $job = Job::find($id);
         return view('jobs.show')->with('job', $job);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function edit($id)
     {
         $job = Job::find($id);
         return view('jobs.edit')->with('job', $job);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //Only submit when data is input
@@ -101,6 +91,7 @@ class JobsController extends Controller
     }
 
 
+
     public function destroy($id)
     {
         $job = Job::find($id);
@@ -108,8 +99,27 @@ class JobsController extends Controller
         return redirect('/jobs')->with('success', 'Job removed successfully!');
     }
 
+
+
+
+
     public function like($id)
     {
         return $id;
+    }
+
+
+
+
+    public function search(Request $request)
+    {
+        // Validating the search box input
+        $request->validate([
+            'query' => 'required|min:3',
+        ]);
+        // Making mysql enquiry
+        $query = $request->input('query');
+        $job = Job::where('title', 'like', "%$query%")->paginate(5); //using sql wildcards '% %' to search database for matching columns
+        return view("jobs.searchResults")->with('job', $job);
     }
 }
