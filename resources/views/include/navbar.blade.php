@@ -32,9 +32,11 @@
                             {{-- Search feature --}}
                           </ul>
                           <form action="{{route('search')}}" method="GET" class="search-form">
+                            <div class="input-group">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Search" name="query" id="query" aria-label="Search" value="{{request()->input('query')}}">
-                                <span><button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button></span>
-                              </form>
+                              <span >  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button></span>
+                            </div>
+                        </form>
                               {{-- End of search --}}
 
 

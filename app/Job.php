@@ -19,6 +19,7 @@ class Job extends Model
 
     //Timestamps
     public $timestamps = true;
+
     //Creating relation ship between user and associated jobs
     public function user()
     {

@@ -8,7 +8,7 @@
 
 {{-- Including the available jobs partial --}}
 @include('include.jobLoop')
-<a href="/jobs"  class="btn btn-primary  	glyphicon glyphicon-circle-arrow-left ">  Back</a>
+<a href="/jobs"  class="btn btn-default  	glyphicon glyphicon-circle-arrow-left ">  Back</a>
 {{$job->links()}}</span>
 
 

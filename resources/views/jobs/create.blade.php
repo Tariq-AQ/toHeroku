@@ -29,7 +29,7 @@
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     <br>
-    <a href="/jobs"> <button class="btn btn-secondary">Back</button>
+    <a href="/jobs"> <button class="btn btn-default  	glyphicon glyphicon-circle-arrow-left ">Back</button>
     </a>
 
 @endguest

@@ -30,7 +30,7 @@
 {!! Form::close() !!}
 <br>
 {{-- Back takes user back to view template instead of jobs --}}
-<a href="/jobs/{{$job->id}}"> <button class="btn btn-secondary  	glyphicon glyphicon-circle-arrow-left "> Back</button>
+<a href="/jobs/{{$job->id}}"> <button class="btn btn-default  	glyphicon glyphicon-circle-arrow-left "> Back</button>
 </a>
 
 

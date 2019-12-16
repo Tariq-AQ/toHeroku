@@ -113,13 +113,30 @@ class JobsController extends Controller
 
     public function search(Request $request)
     {
-        // Validating the search box input
+        // Validating the search box input. there must be a query and it has to be at least three chars
+        //Reference for the following search - validation
+        //Andre Madarang
+        //2018
+        //Youtube
+        //https://www.youtube.com/watch?v=rsHO-RRwIH8
+
         $request->validate([
             'query' => 'required|min:3',
         ]);
+
+
+
         // Making mysql enquiry
         $query = $request->input('query');
         $job = Job::where('title', 'like', "%$query%")->paginate(5); //using sql wildcards '% %' to search database for matching columns
         return view("jobs.searchResults")->with('job', $job);
+        //End of ref
+    }
+
+
+    public function likes()
+    {
+        $like = Job::find('likes')->get();
+        return view('include.jobLoop')->with('like', $like);
     }
 }

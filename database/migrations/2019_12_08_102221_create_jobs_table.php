@@ -15,7 +15,6 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('title');
             $table->mediumText('body');
             $table->integer('likes');
