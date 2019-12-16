@@ -39,10 +39,10 @@ class JobsController extends Controller
 
     public function store(Request $request)
     {
-        //Only submit when data is input
+        //Only submit when data is input and min requirments are met
         $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required'
+            'title' => 'required|min:3',
+            'body' => 'required|min:10'
         ]);
         //using tinker to write to database
         $job = new Job;
@@ -138,5 +138,10 @@ class JobsController extends Controller
     {
         $like = Job::find('likes')->get();
         return view('include.jobLoop')->with('like', $like);
+    }
+
+    public function noPgaeRedirect()
+    {
+        return view('include.noPgaeRedirect');
     }
 }

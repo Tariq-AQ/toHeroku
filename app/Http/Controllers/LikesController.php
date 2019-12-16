@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\LikedItems;
+
 
 use Illuminate\Http\Request;
 
 class LikesController extends Controller
 {
+
 
     public function upVote(Job $job)
     {

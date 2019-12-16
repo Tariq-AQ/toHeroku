@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->hasMany('App\job');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('App\LikeDetails ');
+    }
+
 
     protected $casts = [
         'email_verified_at' => 'datetime',
