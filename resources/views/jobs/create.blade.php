@@ -5,7 +5,7 @@
     @guest
 @if (Route::has('register'))
 {{-- If the user is not logged in then show them this message --}}
-                <p class=" text-center "> Please login or Register to add or remove jobs!</p>
+                <p class=" text-center "> Please <a href="/login"><strong>login</strong> </a>  or <a href="/register"><strong>Register</strong> </a>  to add or remove jobs!</p>
 
 
 

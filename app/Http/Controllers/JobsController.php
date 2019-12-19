@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Http\Request;
@@ -20,14 +21,10 @@ class JobsController extends Controller
         }
     }
 
-
-    public function jobSlideShow()
+    public function lounge()
     {
-
-        $jobs = Job::orderBy('created_at', 'desc')->paginate(5);
-        return view('include.jobSlideShow')->with('job', $jobs);
+        return view('jobs.lounge');
     }
-
 
     public function create()
     {
@@ -95,6 +92,9 @@ class JobsController extends Controller
     public function destroy($id)
     {
         $job = Job::find($id);
+        if (Auth::user() != $job->user) {   ##Check if user owns the post. User can only delete own posts
+            return redirect('/jobs')->with('failed', 'Unauthorized action!!');
+        }
         $job->delete();
         return redirect('/jobs')->with('success', 'Job removed successfully!');
     }

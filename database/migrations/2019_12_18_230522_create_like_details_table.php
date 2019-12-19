@@ -15,10 +15,9 @@ class CreateLikeDetailsTable extends Migration
     {
         Schema::create('like_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('job_id');
             $table->timestamps();
-            $table->integer('user_id');
-            $table->integer('post_id');
-            $table->boolean('like');
         });
     }
 

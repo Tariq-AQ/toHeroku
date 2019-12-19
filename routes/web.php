@@ -6,7 +6,7 @@
 use App\Http\Controllers\CommentController;
 
 
-Route::get('/', 'jobsController@index');
+Route::get('/', 'jobsController@lounge');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
