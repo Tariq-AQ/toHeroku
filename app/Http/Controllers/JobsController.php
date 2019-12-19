@@ -67,6 +67,10 @@ class JobsController extends Controller
     public function edit($id)
     {
         $job = Job::find($id);
+        if (Auth::user() != $job->user) {   ##Check if user owns the post. User can only edit own posts
+            return redirect('/jobs')->with('failed', 'Unauthorized action!!');
+        }
+
         return view('jobs.edit')->with('job', $job);
     }
 

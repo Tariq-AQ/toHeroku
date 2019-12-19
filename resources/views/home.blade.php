@@ -35,17 +35,19 @@
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class'=> 'btn btn-danger'])}}
                                         {!!Form::close()!!}</td>
-                                        <td><a href="/jobs/{{$eachJob->id}}/edit" class="btn btn-secondary glyphicon glyphicon-pencil"></a></td>
-                                        <td><a href="/jobs/{{$eachJob->id}}/" class="btn btn-secondary glyphicon glyphicon-eye-open"></a></td>
+                                        <td><a href="/jobs/{{$eachJob->id}}/edit" class="btn btn-default glyphicon glyphicon-pencil"></a></td>
+                                        <td><a href="/jobs/{{$eachJob->id}}/" class="btn btn-default glyphicon glyphicon-eye-open"></a></td>
                                         <td>
                                                 <a class="button"
                                                     href="/jobs/{{ $eachJob->id }}/like/">
-                                                    <button class="btn btn-secondary glyphicon glyphicon-thumbs-up"></button>
+                                                    <button class="btn btn-default glyphicon glyphicon-thumbs-up"></button>
                                                 </a>
                                                 <a class="button"
-                                                     href="/jobs/{{ $eachJob->id }}/dislike/">
-                                                    <button class="btn btn-secondary glyphicon glyphicon-thumbs-down"></button>
-                                                 </a>
+                                                    href="/jobs/{{ $eachJob->id }}/dislike/">
+                                                    <button class="btn btn-default glyphicon glyphicon-thumbs-down"></button>
+                                                </a>
+
+                                                 <span>{{$eachJob->likes}}</span>
                                               </td>
                                 </tr>
                             @endforeach

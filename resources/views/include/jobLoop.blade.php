@@ -12,7 +12,7 @@
              https://www.youtube.com/watch?v=PAP8IS_ak6w&list=PLillGF-RfqbYhQsN5WMXy6VsDMKGadrJ-&index=9&t=0s
              --}}
         <div>
-            @if(Auth::user()== $eachJob->user )
+            @if(Auth::user()== $eachJob->user ) <!--Only show delete button if the user owns the post-->
             <td>{!!Form::open(['action'=>['JobsController@destroy', $eachJob->id], 'method'=>'POST', 'class'=>'btn pr-0'])!!}
                 {{Form::hidden('_method', 'DELETE')}}<!--Setting the method-->
                 {{Form::submit('Delete', ['class'=> 'btn btn-danger'])}}<!--Setting name and style for the delete button-->

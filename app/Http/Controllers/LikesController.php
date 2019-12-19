@@ -16,15 +16,13 @@ class LikesController extends Controller
     {
 
         $job->upvoteAndSave();
-
-        return redirect()->action('JobsController@index');
+        return redirect()->back(); //stay on current page after like
     }
 
     public function downVote(Job $job)
     {
 
         $job->downvoteAndSave();
-
-        return redirect()->action('JobsController@index');
+        return redirect()->back();
     }
 }
