@@ -100,7 +100,7 @@ class JobsController extends Controller
             return redirect('/jobs')->with('failed', 'Unauthorized action!!');
         }
         $job->delete();
-        return redirect('/jobs')->with('success', 'Job removed successfully!');
+        return redirect()->back()->with('success', 'Job removed successfully!');
     }
 
 

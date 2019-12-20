@@ -3,6 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -27,7 +28,7 @@
                             </tr>
                             @foreach($jobs as $eachJob)
                             <tr>
-                            <th>{{$eachJob->title}}</th>
+                            <th><a href="/jobs/{{$eachJob->id}}">{{$eachJob->title}}</a></th>
 
                                     <td><p>Added on {{$eachJob->created_at}}</p></td>
 
@@ -35,7 +36,11 @@
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class'=> 'btn btn-danger'])}}
                                         {!!Form::close()!!}</td>
+
+
                                         <td><a href="/jobs/{{$eachJob->id}}/edit" class="btn btn-default glyphicon glyphicon-pencil"></a></td>
+
+
                                         <td><a href="/jobs/{{$eachJob->id}}/" class="btn btn-default glyphicon glyphicon-eye-open"></a></td>
                                         <td>
                                                 <a class="button"
@@ -50,6 +55,7 @@
                                                  <span>{{$eachJob->likes}}</span>
                                               </td>
                                 </tr>
+
                             @endforeach
                         </table>
                     </div>
@@ -68,4 +74,36 @@
 
 </div>
 
+{{-- The following  is grabbed from getbootstrap.com --}}
+<div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit Post</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        $("#editBtn").on("click", function() {
+            $('#edit-modal').modal();
+        });
+
+
+    });
+
+        </script>
 @endsection
