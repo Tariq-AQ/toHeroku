@@ -26,6 +26,8 @@ class JobsController extends Controller
         return view('jobs.lounge');
     }
 
+
+
     public function create()
     {
         return view('jobs.create');
@@ -107,12 +109,6 @@ class JobsController extends Controller
 
 
 
-    public function like($id)
-    {
-        return $id;
-    }
-
-
 
 
     public function search(Request $request)
@@ -138,11 +134,6 @@ class JobsController extends Controller
     }
 
 
-    public function likes()
-    {
-        $like = Job::find('likes')->get();
-        return view('include.jobLoop')->with('like', $like);
-    }
 
     public function noPgaeRedirect()
     {

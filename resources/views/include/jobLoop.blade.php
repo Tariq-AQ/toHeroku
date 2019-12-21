@@ -2,7 +2,7 @@
 @foreach ($job as $eachJob)
         <div class="card p-3 mt-3 mb-3">
              <h3><a href="/jobs/{{$eachJob->id}}">{{$eachJob->title}}</a></h3>
-               <small>Added on {{$eachJob->created_at}}</small>
+        <small> <strong>Added on </strong> {{$eachJob->created_at}} <br> <strong>By: </strong> {{$eachJob->user->name}}</small>
 
  {{-- I had to do the delete that way as the one on the VLE didn't work for me for some reason.
              Ref - Traversy Media
@@ -28,11 +28,11 @@
                     <a href="/jobs/{{$eachJob->id}}/" class="btn btn-default glyphicon glyphicon-eye-open"></a>
                 </td>
                     <a class="button" href="/jobs/{{ $eachJob->id }}/like/">
-                        <button id="likeBtn" onclick="toggleRadio(false)" class="btn btn-default glyphicon glyphicon-thumbs-up "></button>
+                        <button class="btn btn-default glyphicon glyphicon-thumbs-up "></button>
                     </a>
 
                     <a class="button" href="/jobs/{{ $eachJob->id }}/dislike/">
-                        <button id="dislikeBtn"  class="btn btn-default glyphicon glyphicon-thumbs-down "></button>
+                        <button class="btn btn-default glyphicon glyphicon-thumbs-down "></button>
                     </a>
                         <span>{{$eachJob->likes}}</span>
 
