@@ -32,12 +32,7 @@ class User extends Authenticatable
     //Function to create one to many relationship. Each user can have many jobs
     public function jobs()
     {
-        return $this->hasMany('App\job');
-    }
-
-    public function likes()
-    {
-        return $this->hasMany('App\LikeDetails ');
+        return $this->hasMany('App\Job');
     }
 
 
