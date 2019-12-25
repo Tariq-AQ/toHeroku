@@ -10,6 +10,7 @@
 <link rel="icon" href="{{asset('images/favicon.svg')}}" type="image/svg" sizes="16x16">
     @if(count($job) >0 )
 
+        @include('include.filters')
         @include('include.jobLoop')
         <br><br>
 

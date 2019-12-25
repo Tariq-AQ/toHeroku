@@ -1,8 +1,11 @@
 
+
+
+
 @foreach ($job as $eachJob)
         <div class="card p-3 mt-3 mb-3">
              <h3><a href="/jobs/{{$eachJob->id}}">{{$eachJob->title}}</a></h3>
-        <small> <strong>Added on </strong> {{$eachJob->created_at}} <br> <strong>By: </strong> {{$eachJob->user->name}}</small>
+        <small> <strong>Added on </strong> {{$eachJob->created_at}} <br> <strong>By: </strong> {{$eachJob->user->name}} <br> <strong> Job type: </strong>{{$eachJob->job_type}}</small>
 
  {{-- I had to do the delete that way as the one on the VLE didn't work for me for some reason.
              Ref - Traversy Media

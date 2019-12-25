@@ -12,8 +12,9 @@ class JobsController extends Controller
 {
     public function index()
     {
-        if (request()->has('likes')) {
-            $jobs = Job::where('likes', request('likes'))->paginate(5);
+        if (request()->has('job_type')) {
+            $job = Job::where('job_type', request('job_type'))->orderBy('created_at', 'desc')->paginate(5)->appends('job_type', request('job_type'));
+            return view('jobs.index')->with('job', $job);
         } else {
 
             $jobs = Job::orderBy('created_at', 'desc')->paginate(5);
