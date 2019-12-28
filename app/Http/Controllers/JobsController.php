@@ -12,26 +12,51 @@ class JobsController extends Controller
 {
     public function index()
     {
-        if (request()->has('job_type')) {
-            $job = Job::where('job_type', request('job_type'))->orderBy('created_at', 'desc')->paginate(5)->appends('job_type', request('job_type'));
-            return view('jobs.index')->with('job', $job);
-        } else {
 
-            $jobs = Job::orderBy('created_at', 'desc')->paginate(5);
-            return view('jobs.index')->with('job', $jobs);
+
+        // Reference for the following code:
+        // Laravel 5.3 Pagination with Filters, Part 2
+        //Saeed Prez
+        // Published: Jan 4, 2017
+        //Retrieved: 27/12/2019
+        //Youtube
+        //https://youtu.be/IcLaNHxGTrs?t=227
+
+
+        //This code allows us add and remove filters with ease.
+
+        $jobs = new Job;
+        $queries = [];                  //Make an empty array for  filters that will be passed through query
+
+        $columns = [                    //Make an array for filters that will be shown
+            'job_type', 'created_at',
+        ];
+
+        foreach ($columns as $column) {    //Loop through $column array and apply all filters passed through query
+            if (request()->has($column)) {
+                $jobs = $jobs->where($column, request($column));
+                $queries[$column] = request($column);
+            }
         }
-    }
 
-    public function lounge()
-    {
-        return view('jobs.lounge');
+        if (request()->has('sort')) {      //apply 'sort' if requested
+            $jobs = $jobs->orderBy('created_at', request('sort')); //Order  by what ever comes after 'sort' in the request url. such as '/?sort=asc'
+            $queries['sort'] = request('sort');  //Add requested sort entire 'asc & desc' to queries array.
+        } else {
+            $jobs = $jobs->orderBy('created_at', 'desc');  //else, just show the latest first
+        }
+        $jobs = $jobs->paginate(5)->appends($queries); //Paginate but also retain filters when changing pages using laravel's 'appends' method
+        return view('jobs.index')->with('jobs', $jobs);
     }
-
 
 
     public function create()
     {
-        return view('jobs.create');
+        $jobType = [
+            'Full-time', 'Part-time', 'apprenticeship'
+        ];
+
+        return view('jobs.create')->with('jobType', $jobType);
     }
 
 
@@ -127,17 +152,10 @@ class JobsController extends Controller
 
 
 
-        // Making mysql enquiry
+        // Making mysql query
         $query = $request->input('query');
-        $job = Job::where('title', 'like', "%$query%")->paginate(5); //using sql wildcards '% %' to search database for matching columns
-        return view("jobs.searchResults")->with('job', $job);
+        $jobs = Job::where('title', 'like', "%$query%")->paginate(5); //using sql wildcards '% %' to search database for matching columns
+        return view("jobs.searchResults")->with('jobs', $jobs);
         //End of ref
-    }
-
-
-
-    public function noPgaeRedirect()
-    {
-        return view('include.noPgaeRedirect');
     }
 }

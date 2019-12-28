@@ -24,4 +24,13 @@ class PagesController extends Controller
         );
         return view('pages.services')->with($data);
     }
+    public function lounge()
+    {
+        return view('jobs.lounge');
+    }
+
+    public function noPgaeRedirect()
+    {
+        return view('include.noPgaeRedirect');
+    }
 }

@@ -16,7 +16,8 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('job_type');
+
+            $table->string('job_type')->default('Full-time');
             $table->mediumText('body');
             $table->integer('likes');
             $table->timestamps();

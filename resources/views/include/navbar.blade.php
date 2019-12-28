@@ -1,18 +1,20 @@
 <!--Some of the navbar elements were grabbed from getbootstrap.com -->
 
-      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'JobShare') }}
-                </a>
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-
-                    <ul class="navbar-nav mr-auto">
+                <header>
+                    <!-- Fixed navbar -->
+                    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            {{ config('app.name', 'JobShare') }}
+                        </a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
                             <li class="nav-item ">
-                              <a class="nav-link" href="/">Lounge <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="/">Lounge</a>
                             </li>
 
                             <li class="nav-item">
@@ -25,35 +27,19 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="/about">About</a>
                                   </li>
+                    </ul>
 
-
-
-
-                            {{-- Search feature --}}
-                          </ul>
-                          <form action="{{route('search')}}" method="GET" class="search-form">
-                            <div class="input-group">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="query" id="query" aria-label="Search" value="{{request()->input('query')}}">
-                              <span >  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button></span>
-                            </div>
-                        </form>
-                              {{-- End of search --}}
-
-
-
-
-
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-
-
-                              <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                              </div>
-                              <a href="/jobs/create"><button class="btn btn-primary">Add New Job</button> </a>
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav pull-right">
+
+                        <form action="{{route('search')}}" method="GET" class="form-inline mt-2 mt-md-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="query" id="query" aria-label="Search" value="{{request()->input('query')}}">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form>
+
+
                         <!-- Authentication Links -->
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -86,7 +72,11 @@
 
                                   </div>
                         @endguest
+
                     </ul>
-                </div>
-            </div>
-        </nav>
+
+                      </div>
+                    </nav>
+                  </header>
+
+
