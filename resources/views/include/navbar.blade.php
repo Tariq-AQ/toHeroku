@@ -5,7 +5,7 @@
                 <header>
                     <!-- Fixed navbar -->
                     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        <a class="navbar-brand" href="{{ url('/jobs') }}">
                             {{ config('app.name', 'JobShare') }}
                         </a>
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,11 +30,11 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav pull-right">
+                    <ul class="navbar-nav float-right" id="rightNav">
 
                         <form action="{{route('search')}}" method="GET" class="form-inline mt-2 mt-md-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="query" id="query" aria-label="Search" value="{{request()->input('query')}}">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0 glyphicon glyphicon-search" type="submit"></button>
                           </form>
 
 

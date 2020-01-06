@@ -35,7 +35,7 @@ class LikesController extends Controller
         } else {
 
             $job->downvoteAndSave();
-            return redirect()->back(); //stay on current page after like
+            return redirect()->back();
         }
     }
 }

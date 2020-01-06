@@ -1,8 +1,4 @@
-week10..
-Major tweaks
-All crud functions
-Turned the website from practice into final prject
-Added Laravel collectives
-Switched to Bootstrap
+Jobshare is a job search website for people who are not CV condfident. I will be adding more to the page throughout the course.
 
----
+I have used Bootstrap 4.4.1 for the front-end stylying.
+As of now, the like and dilike buttons are noty limted per user. I will add a trait table later on to limit each user to one like/dislike on each post.

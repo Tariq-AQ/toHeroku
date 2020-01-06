@@ -11,7 +11,7 @@
 <hr>
 <small>Added {{$job->created_at->diffForHumans()}}</small>
 <hr>
-<p><strong>Category: </strong> {{$job->category}}</p>
+<p><strong>Job Type: </strong> {{$job->job_type}}</p>
 
 
 <div class="page-footer font-small blue pt-4">
@@ -22,7 +22,6 @@
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class'=> 'btn btn-danger'])}}
     {!!Form::close()!!}</td>
-    @elseif(Auth::user()!=$job->user) {{-- If the user doesn't own the post then show apply button --}}
 
 
 @endif

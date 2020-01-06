@@ -23,17 +23,17 @@ class JobsController extends Controller
         //https://youtu.be/IcLaNHxGTrs?t=227
 
 
-        //This code allows us add and remove filters with ease.
+        //This code makes it easy to add/remove filters.
 
         $jobs = new Job;
-        $queries = [];                  //Make an empty array for  filters that will be passed through query
+        $queries = [];                  //Make an empty array for  filters that will be passed through query. This include the 'sort' queries
 
         $columns = [                    //Make an array for filters that will be shown
             'job_type', 'created_at',
         ];
 
-        foreach ($columns as $column) {    //Loop through $column array and apply all filters passed through query
-            if (request()->has($column)) {
+        foreach ($columns as $column) {    //Loop through $column array and apply all filters
+            if (request()->has($column)) { //Here, we are passing an array of filters instead of passing one filter at a time. Another way of doing this would be to add more 'if's, but the code would be a lot longer.
                 $jobs = $jobs->where($column, request($column));
                 $queries[$column] = request($column);
             }
@@ -41,18 +41,19 @@ class JobsController extends Controller
 
         if (request()->has('sort')) {      //apply 'sort' if requested
             $jobs = $jobs->orderBy('created_at', request('sort')); //Order  by what ever comes after 'sort' in the request url. such as '/?sort=asc'
-            $queries['sort'] = request('sort');  //Add requested sort entire 'asc & desc' to queries array.
+            $queries['sort'] = request('sort');  //Add requested sort entry 'asc & desc' to queries array.
         } else {
             $jobs = $jobs->orderBy('created_at', 'desc');  //else, just show the latest first
         }
-        $jobs = $jobs->paginate(5)->appends($queries); //Paginate but also retain filters when changing pages using laravel's 'appends' method
+
+        $jobs = $jobs->paginate(5)->appends($queries); //Paginate but also retain filters when changing pages. Made easy with laravel's 'appends' method
         return view('jobs.index')->with('jobs', $jobs);
     }
 
 
     public function create()
     {
-        $jobType = [
+        $jobType = [ //an array that will be called from create form
             'Full-time', 'Part-time', 'apprenticeship'
         ];
 
