@@ -10876,9 +10876,3 @@ a.text-dark:focus {
   }
 }
 
-@media screen and (max-width: 780px) {
-  #rightNav {
-    float: left;
-  }
-}
-
