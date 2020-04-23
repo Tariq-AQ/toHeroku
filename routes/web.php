@@ -27,3 +27,8 @@ Route::get('/jobs/{job}/dislike', 'LikesController@downVote');
 
 ##Routing everything else to a custom 404 page.
 Route::get('/{any}', 'PagesController@noPgaeRedirect')->where('any', '.*');
+
+
+##Social Authentication
+Route::get('social-login/{proivider}', 'Auth\LoginController@redirectToProvider')->name('social-login.redirect');
+Route::get('social-login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social-login.callback');

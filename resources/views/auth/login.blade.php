@@ -23,7 +23,9 @@
                                     </span>
                                 @enderror
                             </div>
+
                         </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -62,12 +64,27 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+
                             </div>
+
                         </div>
                     </form>
+
                 </div>
             </div>
+<br>
+            <h5 clas> Or</h5>
+
+            <div class="card">
+            <a href="{{route('social-login.redirect', 'twitter')}}" class="btn btn-secondary">Login with Twitter</a>
+            </div>
+
+
         </div>
     </div>
+
+
+
 </div>
+
 @endsection
